@@ -1,0 +1,16 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.4;
+contract money{
+/*receive() external payable { 
+    fund();
+}
+    fallback() external payable {
+fund();
+     }//自动调取fund函数*/
+
+function transfer(address payable _to)public payable{
+    msg.sender;
+    (bool sent,)=_to.call{value:msg.value}("");
+    require(sent,"falied");
+}
+}
